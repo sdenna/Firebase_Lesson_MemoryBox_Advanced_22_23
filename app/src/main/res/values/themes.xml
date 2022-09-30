@@ -20,4 +20,16 @@
         <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:layout_width">@dimen/buttonWidth</item>
     </style>
+
+    <style name="spinnerStyles" parent="TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
+        <item name="android:background">@color/spinnerColor</item>
+        <item name="height">@dimen/spinnerHeight</item>
+        <item name="textColorAlertDialogListItem">@color/primaryDarkColor</item>
+    </style>
+
+    <style name="editTextStyles" parent="Widget.AppCompat.EditText">
+        <item name="android:padding">@dimen/padding</item>
+        <item name="android:layout_marginTop">@dimen/marginFromTop</item>
+        <item name="backgroundColor">@color/spinnerColor</item>
+    </style>
 </resources>

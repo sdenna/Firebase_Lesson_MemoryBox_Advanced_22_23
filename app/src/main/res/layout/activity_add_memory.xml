@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".AddMemoryActivity">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginFromTop"
-        android:text="Memory Box"
+        android:text="Add a Memory"
         android:textColor="@color/primaryDarkColor"
         android:textSize="@dimen/fontTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,50 +20,44 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/userNameEditText"
-        android:layout_width="@dimen/editTextWidth"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginFromTop"
+        android:id="@+id/memNameEditText"
+        android:layout_width="@dimen/memEditTextWidth"
+        android:layout_height="@dimen/spinnerHeight"
+        style="@style/editTextStyles"
         android:ems="10"
-        android:hint="User Name"
+        android:hint="Name of Memory"
         android:inputType="textPersonName"
+        android:background="@color/spinnerColor"
         android:textSize="@dimen/fontRegular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <EditText
-        android:id="@+id/passwordEditText"
-        android:layout_width="@dimen/editTextWidth"
-        android:layout_height="wrap_content"
+        android:id="@+id/memoryEditText"
+        android:layout_width="@dimen/memEditTextWidth"
+        android:layout_height="@dimen/memEditTextDescHeight"
         android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName|textWebPassword"
+        android:gravity="top"
+        style="@style/editTextStyles"
+        android:background="@color/spinnerColor"
+        android:hint="Description"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
+        android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/memNameEditText" />
 
-    <Button
-        android:id="@+id/logInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="Log In"
-        style="@style/buttonStyles"
-        android:onClick="logInClicked"
-        app:layout_constraintStart_toStartOf="@+id/passwordEditText"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
+    <Spinner
+        android:id="@+id/memorySpinner"
+        android:layout_width="@dimen/memEditTextWidth"
+        android:layout_height="@dimen/spinnerHeight"
+        android:layout_marginTop="@dimen/margin"
+        style="@style/spinnerStyles"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
-    <Button
-        android:id="@+id/signUpButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        style="@style/buttonStyles"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
-        app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
