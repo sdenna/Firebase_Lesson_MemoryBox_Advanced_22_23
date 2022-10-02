@@ -21,31 +21,35 @@
 
     <EditText
         android:id="@+id/memNameEditText"
+        style="@style/editTextStyles"
         android:layout_width="@dimen/memEditTextWidth"
         android:layout_height="@dimen/spinnerHeight"
-        style="@style/editTextStyles"
+        android:layout_marginTop="@dimen/margin"
+        android:background="@color/spinnerColor"
         android:ems="10"
         android:hint="Name of Memory"
         android:inputType="textPersonName"
-        android:background="@color/spinnerColor"
+        android:textColor="@color/primaryDarkColor"
         android:textSize="@dimen/fontRegular"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title" />
+        app:layout_constraintTop_toBottomOf="@+id/memorySpinner" />
 
     <EditText
         android:id="@+id/memoryEditText"
+        style="@style/editTextStyles"
         android:layout_width="@dimen/memEditTextWidth"
         android:layout_height="@dimen/memEditTextDescHeight"
+        android:layout_marginTop="@dimen/margin"
+        android:background="@color/spinnerColor"
         android:ems="10"
         android:gravity="top"
-        style="@style/editTextStyles"
-        android:background="@color/spinnerColor"
         android:hint="Description"
-        android:layout_marginTop="@dimen/margin"
+        android:inputType="textMultiLine"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
-        android:inputType="textMultiLine"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memNameEditText" />
 
@@ -54,7 +58,9 @@
         android:layout_width="@dimen/memEditTextWidth"
         android:layout_height="@dimen/spinnerHeight"
         android:layout_marginTop="@dimen/margin"
+        android:entries="@array/memoryRating"
         style="@style/spinnerStyles"
+        android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />

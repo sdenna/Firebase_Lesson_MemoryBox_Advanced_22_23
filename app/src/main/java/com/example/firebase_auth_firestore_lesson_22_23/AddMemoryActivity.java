@@ -14,18 +14,27 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
     // How to implement a Spinner
     // https://www.tutorialspoint.com/how-to-get-spinner-value-in-android
 
+    // How to style the spinner
+    // https://www.youtube.com/watch?v=7tnlh1nVkuE
+
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_memory);
 
+        // this attaches my spinner design (spinner_list.xml) and my array of spinner choices(R.array.memoryRating)
         spinner = findViewById(R.id.memorySpinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.memoryRating,
-                android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_list,
+                getResources().getStringArray(R.array.memoryRating));
+
+        // this attaches my custom row design (how I want each row to look)
+        adapter.setDropDownViewResource(R.layout.custom_spinner_dropdown_row);
+
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
+
+
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
