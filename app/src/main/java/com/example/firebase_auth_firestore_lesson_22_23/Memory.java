@@ -95,9 +95,6 @@ public class Memory implements Parcelable {
         return 0;
     }
 
-
-
-
     public int getRating() {
         return rating;
     }

@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginFromTop"
         android:ems="10"
-        android:hint="User Name"
+        android:hint="Email (for username)"
         android:inputType="textPersonName"
         android:textSize="@dimen/fontRegular"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,6 +63,7 @@
         android:layout_marginTop="48dp"
         style="@style/buttonStyles"
         android:text="Sign Up"
+        android:onClick="signUpClicked"
         app:layout_constraintEnd_toEndOf="@+id/passwordEditText"
         app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 

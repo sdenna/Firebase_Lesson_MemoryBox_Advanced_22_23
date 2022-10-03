@@ -33,8 +33,6 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
 
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
-
-
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

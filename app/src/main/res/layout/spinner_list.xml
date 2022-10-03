@@ -12,3 +12,4 @@
         android:ellipsize="marquee"
         android:layout_marginTop="@dimen/margin"
 />
+
