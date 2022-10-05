@@ -61,7 +61,10 @@ public class FirebaseHelper {
         return mAuth;
     }
 
-
+    public void logOutUser() {
+        mAuth.signOut();
+        this.uid = null;
+    }
 
     public void attachReadDataToUser() {
 
@@ -90,7 +93,7 @@ public class FirebaseHelper {
     }
 
     public void updateUid(String uid) {
-
+        this.uid = uid;
     }
 
     /* https://www.youtube.com/watch?v=0ofkvm97i0s

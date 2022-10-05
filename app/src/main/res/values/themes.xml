@@ -25,7 +25,6 @@
         <item name="android:background">@color/spinnerColor</item>
         <item name="android:layout_height">@dimen/spinnerHeight</item>
         <item name="android:layout_marginTop">@dimen/margin</item>
-
     </style>
 
     <style name="editTextStyles" parent="Widget.AppCompat.EditText">
@@ -33,6 +32,5 @@
         <item name="android:layout_marginTop">@dimen/marginFromTop</item>
         <item name="backgroundColor">@color/spinnerColor</item>
         <item name="android:textColor">@color/primaryDarkColor</item>
-
     </style>
 </resources>
