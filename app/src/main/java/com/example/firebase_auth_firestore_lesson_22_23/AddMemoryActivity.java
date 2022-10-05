@@ -39,6 +39,7 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
         String text = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
     }
+    // This method is required, even if empty, for the OnItemSelectedListener to work
     @Override
     public void onNothingSelected(AdapterView<?> parent) { }
 
