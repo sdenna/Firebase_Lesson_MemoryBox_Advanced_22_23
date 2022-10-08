@@ -34,9 +34,19 @@ public class SignInActivity extends AppCompatActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+
 
         firebaseHelper = new FirebaseHelper();
+
+        // if the user is already logged in, then they bypass this screen
+        if (firebaseHelper.getmAuth() != null) {
+            firebaseHelper.attachReadDataToUser();
+            Intent intent = new Intent(SignInActivity.this, SelectActionActivity.class);
+            startActivity(intent);
+        }
+
+        setContentView(R.layout.activity_sign_in);
+
         logInB = findViewById(R.id.logInButton);
         signUpB = findViewById(R.id.signUpButton);
         userNameET = findViewById(R.id.userNameEditText);
@@ -81,7 +91,8 @@ public class SignInActivity extends AppCompatActivity  {
 
                                 // we will implement this later
                                 // updateIfLoggedIn();
-                                // firebaseHelper.attachReadDataToUser();
+                                firebaseHelper.addUserToFirestore(userName, firebaseHelper.getmAuth().getUid());
+                                firebaseHelper.attachReadDataToUser();
 
                                 Intent intent = new Intent(SignInActivity.this, SelectActionActivity.class);
                                 startActivity(intent);
@@ -140,7 +151,7 @@ public class SignInActivity extends AppCompatActivity  {
 
                                 // we will implement this later
                                 // updateIfLoggedIn();
-                                // firebaseHelper.attachReadDataToUser();
+                                firebaseHelper.attachReadDataToUser();
 
                                 Log.d(TAG, userName + " logged in");
 

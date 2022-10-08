@@ -7,12 +7,22 @@ public class Memory implements Parcelable {
     private int rating;
     private String name, desc;
     private int imageResourceID;
+    private String docID;
+
+    public Memory(int rating, String name, String desc, int imageResourceID, String docID) {
+        this.rating = rating;
+        this.name = name;
+        this.desc = desc;
+        this.imageResourceID = imageResourceID;
+        this.docID = docID;
+    }
 
     public Memory(int rating, String name, String desc, int imageResourceID) {
         this.rating = rating;
         this.name = name;
         this.desc = desc;
         this.imageResourceID = imageResourceID;
+        this.docID = "No docID yet";
     }
 
     public Memory(int rating, String name, String desc) {
@@ -20,6 +30,7 @@ public class Memory implements Parcelable {
         this.name = name;
         this.desc = desc;
         this.imageResourceID = 0;   // place holder until memories have photos attached
+        this.docID = "No docID yet";
     }
 
     // A default constructor is required for the Parceable interface to work
@@ -28,6 +39,7 @@ public class Memory implements Parcelable {
         name = "No name";
         desc = "No desc";
         this.imageResourceID = 0;
+        this.docID = "No docID yet";
     }
 
     /** This is a "constructor" of sorts that is needed with the Parceable interface to
@@ -43,6 +55,7 @@ public class Memory implements Parcelable {
         name = parcel.readString();
         desc = parcel.readString();
         imageResourceID = parcel.readInt();
+        docID = parcel.readString();
     }
 
     /**
@@ -58,6 +71,7 @@ public class Memory implements Parcelable {
         dest.writeString(name);
         dest.writeString(desc);
         dest.writeInt(imageResourceID);
+        dest.writeString(docID);
     }
 
 
@@ -125,5 +139,13 @@ public class Memory implements Parcelable {
 
     public void setImageResourceID(int imageResourceID) {
         this.imageResourceID = imageResourceID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
+    }
+
+    public String getDocID() {
+        return docID;
     }
 }
