@@ -35,15 +35,8 @@ public class SignInActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         firebaseHelper = new FirebaseHelper();
-
-        // if the user is already logged in, then they bypass this screen
-        if (firebaseHelper.getmAuth() != null) {
-            firebaseHelper.attachReadDataToUser();
-            Intent intent = new Intent(SignInActivity.this, SelectActionActivity.class);
-            startActivity(intent);
-        }
+        updateUI();
 
         setContentView(R.layout.activity_sign_in);
 
@@ -52,6 +45,30 @@ public class SignInActivity extends AppCompatActivity  {
         userNameET = findViewById(R.id.userNameEditText);
         passwordET = findViewById(R.id.passwordEditText);
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        updateUI();
+    }
+
+    /**
+     * This method will check to see if a user is already signed it to the app.
+     * If a user is signed in, then they will be taken to SelectActionActivity
+     * instead of loading this main screen
+     */
+
+    public void updateUI() {
+        // if the user is already logged in, then they bypass this screen
+        if (firebaseHelper.getmAuth() != null) {
+            firebaseHelper.attachReadDataToUser();
+            Intent intent = new Intent(SignInActivity.this, SelectActionActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
 
     /**
      * Method first checks if the input is valid.  If it meets the screening criteria from
@@ -80,10 +97,6 @@ public class SignInActivity extends AppCompatActivity  {
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            // FOR SOME REASON IF THE CREATE USER IS NOT WORKING, THIS IS CRASHING
-                            // NOT SURE WHY?  I TRIED WITH A DUPLICATE EMAIL ADDRESS AND THAT CRASHED IT.
-                            // LOGCAT SHOWED THE MESSAGE BUT I COULDN'T GET IT TO SHOW IN A LOG STATEMENT
-
                             if (task.isSuccessful()){
                                 // Sign up successful, update UI with the currently signed in user's info
                                 firebaseHelper.updateUid(firebaseHelper.getmAuth().getUid());

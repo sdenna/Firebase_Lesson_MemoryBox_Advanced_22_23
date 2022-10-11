@@ -109,6 +109,11 @@ public class Memory implements Parcelable {
         return 0;
     }
 
+    public String toString() {
+        return "Rating: " + rating + " " + desc;
+    }
+
+
     public int getRating() {
         return rating;
     }

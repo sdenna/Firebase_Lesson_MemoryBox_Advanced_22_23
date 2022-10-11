@@ -57,7 +57,14 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
         String memName = memoryName.getText().toString();
         String memDesc = memoryDesc.getText().toString();
         int memoryRatingNum = 0;
-        //
+
+        // This will take the option they clicked on and ensure it is a number.
+        // My options went from 5 to 1, so that is why I have it adjusted with 6-i
+        // I also had an instruction statement as my first line in my string array
+        // ADJUST THIS LOOP TO MATCH YOUR CODE!
+
+        // Note the syntax here for how to access an index of a string array within
+        // the java
         for (int i = 1; i < 6; i++) {
             if (spinnerSelectedText.equals(getResources().getStringArray(R.array.memoryRating)[i])) {
                 memoryRatingNum = 6-i;
@@ -70,6 +77,10 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
 
         memoryName.setText("");
         memoryDesc.setText("");
+    }
+
+    public void addImageButtonClicked(View view) {
+
     }
 
 }
