@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Password"
+        android:text="password"
         android:inputType="textPersonName|textWebPassword"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintEnd_toEndOf="parent"

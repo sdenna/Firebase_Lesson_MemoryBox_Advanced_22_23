@@ -36,7 +36,7 @@ public class SignInActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
         firebaseHelper = new FirebaseHelper();
-        updateUI();
+       // updateUI();
 
         setContentView(R.layout.activity_sign_in);
 
@@ -50,7 +50,7 @@ public class SignInActivity extends AppCompatActivity  {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        updateUI();
+      //  updateUI();
     }
 
     /**

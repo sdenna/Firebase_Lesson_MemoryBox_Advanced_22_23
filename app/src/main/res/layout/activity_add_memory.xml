@@ -74,21 +74,29 @@
         android:text="Add Memory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addImageButton" />
+        app:layout_constraintTop_toBottomOf="@+id/selectImageButton" />
 
     <Button
-        android:id="@+id/addImageButton"
+        android:id="@+id/selectImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/buttonStyles"
         android:backgroundTint="@color/secondaryDarkColor"
         android:layout_marginTop="@dimen/margin"
         android:onClick="addImageButtonClicked"
-        android:text="Add Image"
+        android:text="Select Image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/memoryDescEditText" />
 
+    <ImageView
+        android:id="@+id/memoryImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/margin"
+        app:layout_constraintStart_toStartOf="@+id/memoryDescEditText"
+        app:layout_constraintTop_toBottomOf="@+id/memoryDescEditText"
+        tools:srcCompat="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

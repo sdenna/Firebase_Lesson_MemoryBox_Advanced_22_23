@@ -1,27 +1,28 @@
 package com.example.firebase_auth_firestore_lesson_22_23;
 
+import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Memory implements Parcelable {
     private int rating;
     private String name, desc;
-    private int imageResourceID;
+    private String imageUri;
     private String docID;
 
-    public Memory(int rating, String name, String desc, int imageResourceID, String docID) {
+    public Memory(int rating, String name, String desc, String imageUri, String docID) {
         this.rating = rating;
         this.name = name;
         this.desc = desc;
-        this.imageResourceID = imageResourceID;
+        this.imageUri = imageUri;
         this.docID = docID;
     }
 
-    public Memory(int rating, String name, String desc, int imageResourceID) {
+    public Memory(int rating, String name, String desc, String imageUri) {
         this.rating = rating;
         this.name = name;
         this.desc = desc;
-        this.imageResourceID = imageResourceID;
+        this.imageUri = imageUri;
         this.docID = "No docID yet";
     }
 
@@ -29,7 +30,7 @@ public class Memory implements Parcelable {
         this.rating = rating;
         this.name = name;
         this.desc = desc;
-        this.imageResourceID = 0;   // place holder until memories have photos attached
+        this.imageUri = null;   // place holder until memories have photos attached
         this.docID = "No docID yet";
     }
 
@@ -38,7 +39,7 @@ public class Memory implements Parcelable {
         rating = 0;
         name = "No name";
         desc = "No desc";
-        this.imageResourceID = 0;
+        this.imageUri = null;
         this.docID = "No docID yet";
     }
 
@@ -54,7 +55,7 @@ public class Memory implements Parcelable {
         rating = parcel.readInt();
         name = parcel.readString();
         desc = parcel.readString();
-        imageResourceID = parcel.readInt();
+        imageUri = parcel.readString();
         docID = parcel.readString();
     }
 
@@ -70,8 +71,9 @@ public class Memory implements Parcelable {
         dest.writeInt(rating);
         dest.writeString(name);
         dest.writeString(desc);
-        dest.writeInt(imageResourceID);
+        dest.writeString(imageUri);
         dest.writeString(docID);
+
     }
 
 
@@ -138,12 +140,12 @@ public class Memory implements Parcelable {
         this.desc = desc;
     }
 
-    public int getImageResourceID() {
-        return imageResourceID;
+    public String getimageUri() {
+        return imageUri;
     }
 
-    public void setImageResourceID(int imageResourceID) {
-        this.imageResourceID = imageResourceID;
+    public void setimageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 
     public void setDocID(String docID) {

@@ -22,7 +22,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
+
+        compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -42,4 +43,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     // necessary to implement firestore
     implementation 'com.google.firebase:firebase-firestore:24.3.1'
+    // necessary for storage to save the images
+    implementation 'com.google.firebase:firebase-storage:19.1.1'
 }
