@@ -33,4 +33,8 @@
         <item name="backgroundColor">@color/spinnerColor</item>
         <item name="android:textColor">@color/primaryDarkColor</item>
     </style>
+
+    <style name="editTextTitle" parent="editTextStyles">
+        <item name="android:textSize">@dimen/fontTitle</item>
+    </style>
 </resources>

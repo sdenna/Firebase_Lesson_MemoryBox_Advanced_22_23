@@ -100,6 +100,11 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
         spinnerSelectedText = "none selected";
     }
 
+    public void goBackButtonClicked(View view) {
+        Intent intent = new Intent(AddMemoryActivity.this, SelectActionActivity.class);
+        startActivity(intent);
+    }
+
     public void addMemoryButtonClicked(View view) {
         String memName = memoryName.getText().toString();
         String memDesc = memoryDesc.getText().toString();

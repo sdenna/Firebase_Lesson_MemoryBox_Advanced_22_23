@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginFromTop"
         android:ems="10"
+        android:text="d@gmail.com"
         android:hint="Email (for username)"
         android:inputType="textPersonName"
         android:textSize="@dimen/fontRegular"

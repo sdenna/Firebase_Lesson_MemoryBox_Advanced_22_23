@@ -112,7 +112,7 @@ public class Memory implements Parcelable {
     }
 
     public String toString() {
-        return "Rating: " + rating + " " + desc;
+        return "Rating: " + rating + " " + name;
     }
 
 
