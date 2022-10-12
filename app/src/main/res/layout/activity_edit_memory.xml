@@ -19,7 +19,7 @@
 
     <ImageView
         android:id="@+id/memoryIV"
-        android:layout_width="200dp"
+        android:layout_width="300dp"
         android:layout_height="200dp"
 
         android:layout_marginTop="@dimen/margin"
@@ -49,6 +49,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Save Edits"
+        android:onClick="saveMemoryEdits"
         android:layout_marginTop="@dimen/margin"
         android:layout_marginBottom="@dimen/margin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,6 +62,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Delete Memory"
+        android:onClick="deleteMemory"
         app:layout_constraintTop_toBottomOf="@+id/editMemoryButton"
         android:layout_marginTop="@dimen/margin"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,6 +73,7 @@
         style="@style/buttonStyles"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:onClick="goBack"
         android:text="Back"
         app:layout_constraintTop_toBottomOf="@+id/deleteMemoryButton"
         android:layout_marginTop="@dimen/margin"

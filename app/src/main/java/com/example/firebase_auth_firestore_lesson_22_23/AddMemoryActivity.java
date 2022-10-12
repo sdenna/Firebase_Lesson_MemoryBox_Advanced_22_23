@@ -29,7 +29,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -215,6 +214,9 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
                 else {
                     // Continue with the task to get the download URL
                    // return null;
+                    Log.d(TAG, "is this line reached? " + storageReference.getDownloadUrl());
+                    Task<Uri> testUrl = storageReference.getDownloadUrl();
+
                    return storageReference.getDownloadUrl();
                 }
             }
@@ -223,8 +225,16 @@ public class AddMemoryActivity extends AppCompatActivity implements AdapterView.
             public void onComplete(@NonNull Task<Uri> task) {
                 if (task.isSuccessful()) {
                     Uri downloadUri = task.getResult();
+                 //   URL downloadURL = task.getResult();
+
                     uriToReturn[0] = downloadUri;
-                    Log.d(TAG, "downloadUri: "+downloadUri);
+                    Log.d(TAG, "downloadUri I think is (NEW 9:04 pm): "+downloadUri);
+                    if (downloadUri instanceof Uri) {
+                        Log.d(TAG, "downloadUri is a URI");
+                    }
+                    else {
+                        Log.d(TAG, "downloadUri is NOT a URI");
+                    }
                     storageCallback.onCallback(downloadUri);
 
                 } else {

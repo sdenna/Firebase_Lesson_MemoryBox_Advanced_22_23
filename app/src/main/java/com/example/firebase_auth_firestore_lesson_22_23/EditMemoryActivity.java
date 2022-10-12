@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
-import androidx.appcompat.widget.AppCompatImageView;
 import android.widget.TextView;
 
-import com.google.firebase.firestore.core.View;
 
 public class EditMemoryActivity extends AppCompatActivity {
 
@@ -27,19 +26,30 @@ public class EditMemoryActivity extends AppCompatActivity {
         nameTV = findViewById(R.id.memoryNameTV);
         descTV = findViewById(R.id.memoryDescTV);
         imageIV = findViewById(R.id.memoryIV);
+        imageIV.setAdjustViewBounds(true);  // preserves aspect ratio of image
 
         Intent intent = getIntent();
         currentMemory = intent.getParcelableExtra(ViewAllMemoriesActivity.CHOSEN_MEMORY);
         nameTV.setText(currentMemory.getName());
         descTV.setText(currentMemory.getDesc());
-      //  imageIV.setImageURI(null);
+        imageIV.setImageURI(null);
+        imageIV.setAdjustViewBounds(true);  // preserves aspect ratio of image
+        //imageIV.refreshDrawableState();
 
         // how to set imageview from uri
         // https://www.youtube.com/watch?v=PwV5WPdVpgY
         Uri newUri = Uri.parse(currentMemory.getimageUri());
-        Log.d(TAG, "insdie EditMemory, trying to set uri for IV: " + newUri);
-        //imageIV.setImageURI(newUri);
-        Log.d(TAG, "imageIV to string: " + imageIV.toString());
+        if (newUri instanceof Uri) {
+            Log.d(TAG, "newUri is a URI");
+        }
+        else {
+            Log.d(TAG, "newUri is NOT a URI");
+        }
+        //Log.d(TAG, "inside EditMemory, trying to set uri for IV: " + newUri);
+        imageIV.setImageURI(newUri);
+        //Log.d(TAG, "imageIV to string: " + imageIV.toString());
+
+
     }
 
     // WHY AREN'T THESE METHODS SHOWING UP?>?????
