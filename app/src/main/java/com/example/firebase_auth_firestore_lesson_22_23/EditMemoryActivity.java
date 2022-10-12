@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 
 public class EditMemoryActivity extends AppCompatActivity {
 
@@ -32,18 +34,11 @@ public class EditMemoryActivity extends AppCompatActivity {
         currentMemory = intent.getParcelableExtra(ViewAllMemoriesActivity.CHOSEN_MEMORY);
         nameTV.setText(currentMemory.getName());
         descTV.setText(currentMemory.getDesc());
-        imageIV.setImageURI(null);
-        imageIV.setAdjustViewBounds(true);  // preserves aspect ratio of image
 
         Uri newUri = Uri.parse(currentMemory.getimageUri());
-        imageIV.setImageURI(newUri);
-
-        /**
-         * No matter what i do, this image isn't showing up here!
-         * I tried to implement Picasso, but it broke my project
-         * Going to try again tomorrow when I am not so tired
-         */
-
+        // This sometimes takes an extra second to load the image.
+        // After that the images sometimes rotates horizontally for some reason???
+        Picasso.with(this).load(newUri).into(imageIV);
     }
 
 

@@ -45,4 +45,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:24.3.1'
     // necessary for storage to save the images
     implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
 }
