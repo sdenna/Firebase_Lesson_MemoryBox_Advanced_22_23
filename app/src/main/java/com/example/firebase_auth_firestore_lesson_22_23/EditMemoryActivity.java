@@ -34,25 +34,18 @@ public class EditMemoryActivity extends AppCompatActivity {
         descTV.setText(currentMemory.getDesc());
         imageIV.setImageURI(null);
         imageIV.setAdjustViewBounds(true);  // preserves aspect ratio of image
-        //imageIV.refreshDrawableState();
 
-        // how to set imageview from uri
-        // https://www.youtube.com/watch?v=PwV5WPdVpgY
         Uri newUri = Uri.parse(currentMemory.getimageUri());
-        if (newUri instanceof Uri) {
-            Log.d(TAG, "newUri is a URI");
-        }
-        else {
-            Log.d(TAG, "newUri is NOT a URI");
-        }
-        //Log.d(TAG, "inside EditMemory, trying to set uri for IV: " + newUri);
         imageIV.setImageURI(newUri);
-        //Log.d(TAG, "imageIV to string: " + imageIV.toString());
 
+        /**
+         * No matter what i do, this image isn't showing up here!
+         * I tried to implement Picasso, but it broke my project
+         * Going to try again tomorrow when I am not so tired
+         */
 
     }
 
-    // WHY AREN'T THESE METHODS SHOWING UP?>?????
 
     public void saveMemoryEdits(View v) {
         Log.d(TAG, "editing memory");
